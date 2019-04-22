@@ -1,7 +1,9 @@
 package team1.intelligentcookingapp
 
 import android.content.Intent
+import android.graphics.Color
 import android.graphics.PorterDuff
+import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.view.GestureDetectorCompat
@@ -102,7 +104,18 @@ class favorites_page : AppCompatActivity() {
     fun recipeCreator (recipe: String){
         val linearLayout = findViewById(R.id.linearLayout3) as LinearLayout
         val textBox1 = TextView(this)
-        textBox1.text = recipe
+
+        val parts = recipe.split("-".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
+        val title = parts[0]
+        val webUrl = parts[1]
+        val webUri = webUrl.replace("\\s".toRegex(), "");
+
+        textBox1.text = title;
+        textBox1.setTextColor(Color.parseColor("#0026FF"))
+        textBox1.setOnClickListener(View.OnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(webUri))
+            startActivity(intent)
+        })
 
         // Macy: Somewhere here
 
