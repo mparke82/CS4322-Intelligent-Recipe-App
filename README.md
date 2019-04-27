@@ -1,9 +1,9 @@
 # MobileSoftwareDev_SP19
 
-CS 4322
-Kennesaw State University
-Spring 2019
-Intelligent Cooking Application
+CS 4322 <br />
+Kennesaw State University <br />
+Spring 2019 <br />
+Intelligent Cooking Application <br />
 
     Version:  0.0.1
 
